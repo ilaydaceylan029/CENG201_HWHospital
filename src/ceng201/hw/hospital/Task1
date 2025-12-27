@@ -1,0 +1,11 @@
+"C:\Program Files\Java\jdk-25\bin\java.exe" "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2025.2.3\lib\idea_rt.jar=50759" -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.stderr.encoding=UTF-8 -classpath "C:\Users\İLAYDA CEYLAN\IdeaProjects\CENG201_HWHospital\out\production\CENG201_HWHospital" ceng201.hw.hospital.TestPatient
+Remove patient 120: true
+Find patient 123: Patient{id=123, name='Furkan Kaya', severity=9, age=32}
+--- Patient List (size=4)---
+Patient{id=121, name='Zeynep Arık', severity=4, age=23}
+Patient{id=122, name='Elif Sarıkoç', severity=8, age=45}
+Patient{id=123, name='Furkan Kaya', severity=9, age=32}
+Patient{id=124, name='Ceren Ozturk', severity=2, age=28}
+
+Process finished with exit code 0
+.....
