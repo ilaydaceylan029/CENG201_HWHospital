@@ -1,20 +1,21 @@
 package ceng201.hw.hospital;
-// Represents a single patient in the hospital system.
+
 public class Patient {
 
-    // Unique identifier for each patient.
+    // Patient ID used to identify the patient in the system
     private int id;
 
-    // Patient full name...
+    // Patient full name (name + surname)
     private String name;
 
-    // Severity level in range 1-10 (higher means more urgent).
+    // Priority level for ordering patients(1-10)
+    // Higher value means the patient should be handled earlier
     private int severity;
 
     // Patient age.
     private int age ;
 
-    // Creates a patient object with all required fields.
+    // Creates a new patient with basic information
     public Patient(int id, String name, int severity, int age) {
         this.id = id;
         this.name = name;
@@ -22,24 +23,24 @@ public class Patient {
         this.age = age;
     }
 
-    // Getters are used to access private fields safely.
+    // Return patient id
     public int getId() {
         return id;
     }
-
+    // Return patient name
     public String getName() {
         return name;
     }
-
+    // Return severity value
     public int getSeverity() {
         return severity;
     }
-
+    //Return patient age
     public int getAge() {
         return age;
     }
 
-    // Returns a readable representation for debugging / printing.
+    // Used when printing patient info (debug output)
     @Override
     public String toString() {
         return "Patient{" +

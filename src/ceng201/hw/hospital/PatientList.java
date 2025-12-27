@@ -1,48 +1,49 @@
 package ceng201.hw.hospital;
 
-// Singly linked list implementation to store Patient objects.
+// Singly linked list that stores patient object
 public class PatientList {
 
-    // Node structure for singly linked list.
+    // Simple node class for the linked list
     private static class Node{
         Patient data;
         Node next;
 
         Node(Patient data){
-            this.data = data;  // Patient stored in this node
-            this.next = null;  // Reference to the next node
+            this.data = data;  // Patient keep in this node
+            this.next = null;  // next node
         }
     }
 
-    // Head points to the first node, tail points to the last node.
+    // Head: first node, tail: last node
     private Node head;
     private Node tail;
 
-    // Tracks the number of patients in the list.
+    // Number of elements in the list
     private int size;
 
-    // Initializes an empty list.
+    // Create an empty list
     public PatientList(){
         head = null;
         tail = null;
         size = 0;
     }
 
-    // Adds a patient to the end of the list. Time: O(1)
+    // Adds a patient to the end of the list
+    // If tail is known append is o(1)
     public void addPatient(Patient p){
         Node newNode = new Node((p));
 
-        if(head == null){      // empty list case
+        if(head == null){      // list is empty
             head = newNode;
             tail = newNode;
-        }else {                 // general case: append to tail
+        }else {                 // add after tail
             tail.next = newNode;
             tail = newNode;
         }
         size++;
     }
 
-    // Finds a patient by id using linear search. Time: O(n).
+    // Searches patient by id
     public Patient findPatient(int id){
         Node current = head;
         while (current != null){
@@ -54,31 +55,34 @@ public class PatientList {
         return null;    //not found
     }
 
-    // Removes a patient by id. Time: O(n) due to traversal/search.
+    // Removes a patient by id
+    //We need to traverse so worst case is O(n)
     public boolean removePatint(int id){
         if(head == null){
             return false;  //nothing to remove
         }
 
-        // Special case: removing the head node
+        // If the first patient is the one we remove
         if (head.data.getId() == id){
             head = head.next;
             size--;
 
+            // If the first patient is the one we remove
             if(head == null){    // list became empty after removal
                 tail = null;
             }
             return true;
         }
 
-        // General case: track previous and current nodes.
+        // Otherwise we keep previous node to skip the removed one
         Node prev = head;
         Node current = head.next;
         while ( current != null){
             if (current.data.getId() == id){
-                prev.next = current.next;   //unlink current node
+                prev.next = current.next;   //unlink
 
-                if (current == tail){     // if last node removed, update tail
+                // If last node is removed update tail
+                if (current == tail){
                     tail = prev;
                 }
                 size--;
@@ -87,11 +91,11 @@ public class PatientList {
             prev = current;
             current = current.next;
         }
-        return false;  //id not found
+        return false;  //id not the list
     }
 
 
-    // Prints all patients from head to tail.
+    // Prints all patients in order
     public void printList(){
         System.out.println("--- Patient List (size=" + size +")---");
         Node current = head;
@@ -103,7 +107,7 @@ public class PatientList {
     }
 
 
-    // Returns current number of patients in the list..
+    // Returns how many patients are currently stored
     public int size (){
         return size;
     }
